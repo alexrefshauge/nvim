@@ -9,3 +9,15 @@ From `~/.config/nvim/` run
 Then make an `init.lua` file with:
 
 `require("alexref")`
+
+The folder structure in `~/.config/nvim/` should now look like this
+
+```
+.
+├── lua
+│   └── alexref
+│       ├── lazy
+│       │   └── ...
+│       └── ...
+└── init.lua
+```
