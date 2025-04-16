@@ -6,9 +6,11 @@ From `~/.config/nvim/` run
 
 `git clone https://github.com/alexrefshauge/nvim.git lua/alexref`
 
-Then make an `init.lua` file with:
+Then make an `init.lua` file containing this simple lua code:
 
-`require("alexref")`
+```lua
+require("alexref")
+```
 
 The folder structure in `~/.config/nvim/` should now look like this
 
