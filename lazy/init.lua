@@ -1,8 +1,16 @@
 return {
-	{ 
+	{
 		"folke/which-key.nvim",
-		lazy = true },
-	{ 
+		lazy = true
+	},
+	{
+
+		"folke/todo-comments.nvim",
+		event = "VimEnter",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = { signs = false },
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		main = "nvim-treesitter.configs",

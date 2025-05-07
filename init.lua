@@ -1,8 +1,9 @@
 require("alexref.remap")
 require("alexref.lazy_init")
+require("alexref.auto")
 
 local augroup = vim.api.nvim_create_augroup
-local AlexRefGroup = augroup('AlexRef', {}) 
+local AlexRefGroup = augroup('AlexRef', {})
 
 
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -21,7 +22,8 @@ vim.opt.showmode = false
 local autocmd = vim.api.nvim_create_autocmd
 autocmd('LspAttach', {
 	group = AlexRefGroup,
-	callback = function(e) 
+	callback = function(ev) 
+		local opts = { buffer = ev.buf }
 		vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 		vim.keymap.set("n","K", function() vim.lsp.buf.hover() end, opts)
 	end
@@ -29,3 +31,5 @@ autocmd('LspAttach', {
 
 vim.diagnostic.enable(true)
 vim.cmd("colorscheme cyberdream")
+
+vim.diagnostic.config({virtual_text = true})
